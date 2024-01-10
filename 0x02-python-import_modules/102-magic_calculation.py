@@ -3,7 +3,6 @@
 from magic_calculation_102 import add, sub
 
 def magic_calculation(a, b):
-    """Performs a calculation based on the values of a and b."""
 
     if a < b:
         c = add(a, b)
