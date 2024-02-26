@@ -1,17 +1,29 @@
 #!/usr/bin/python3
-"""Defines an integer addition function."""
+"""Defines a text-indentation function."""
 
 
-def add_integer(a, b=98):
-    """Return the integer addition of a and b.
+def text_indentation(text):
+    """Print text with two new lines after each '.', '?', and ':'.
 
-    Float arguments are typecasted to ints before addition is performed.
-
+    Args:
+        text (string): The text to print.
     Raises:
-        TypeError: If either of a or b is a non-integer and non-float.
+        TypeError: If text is not a string.
     """
-    if ((not isinstance(a, int) and not isinstance(a, float))):
-        raise TypeError("a must be an integer")
-    if ((not isinstance(b, int) and not isinstance(b, float))):
-        raise TypeError("b must be an integer")
-    return (int(a) + int(b))
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
+
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
+                print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
+            continue
+        c += 1
